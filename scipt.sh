@@ -1,18 +1,18 @@
 #!/bin/bash
 	echo 'Выполняется устанновка Nginx + mariadb + Zabbix 5.2 для Ubuntu 18.04 LTS'
-	apt update
+	apt update 
 	apt upgrade
-	apt install nginx
+	apt install nginx -y
 	apt install software-properties-common dirmngr apt-transport-https
 	apt key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
 	apt repository 'deb [arch=amd64,arm64,ppc64el] https://mariadb.mirror.serveriai.lt/repo/10.5/ubuntu bionic main'
 	apt update
-	apt install mariadb-server
+	apt install mariadb-server -y
 	wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
 	dpkg -i zabbix-release_5.2-1+ubuntu18.04_all.deb
 	apt update
 	rm -rf zabbix-release_5.2-1+ubuntu18.04_all.deb
-	apt install zabbix-server-mysql zabbix-frontend-php zabbix-nginx-conf zabbix-agent
+	apt install zabbix-server-mysql zabbix-frontend-php zabbix-nginx-conf zabbix-agent -y
 
 	echo 'Пакеты установлены.'
 	echo '---------------------'
